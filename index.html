@@ -269,7 +269,7 @@ const later=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(paint)};
 let gt;function checkGrid(){if(!grid||!grid.b.contains(map.getBounds())||Math.abs(map.getZoom()-grid.zoom)>=2){clearTimeout(gt);gt=setTimeout(loadGrid,500)}}
 function label(){if(!grid)return;const t=grid.times[hourNow()];$("tl_lbl").textContent=+$("slide").value?`${dow(t)} ${hr(t)}`:"Now"}
 $("slide").oninput=()=>{label();later()};
-$("play").onclick=()=>{if(timer){clearInterval(timer);timer=null;$("play").textContent="▶"}else{$("play").textContent="⏸";timer=setInterval(()=>{const s=$("slide");s.value=+s.value>=+s.max?0:+s.value+1;label();later()},600)}};
+$("play").onclick=()=>{if(timer){clearInterval(timer);timer=null;$("play").textContent="▶"}else{$("play").textContent="❚❚";timer=setInterval(()=>{const s=$("slide");s.value=+s.value>=+s.max?0:+s.value+1;label();later()},600)}};
 
 /* layer picker + legend */
 function setLayer(k){
